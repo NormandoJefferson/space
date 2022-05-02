@@ -25,6 +25,22 @@ function moveUp() {
     }else {
         let position = parseInt(topPosition);
         position -= 50;
-        yourShip.style.top = `${position}px`
+        yourShip.style.top = `${position}px`;
     }
 }
+
+//Desce a nave.
+function moveDown() {
+    // Busca os estilos da nossa nave e retorna o valor top na forma de string.
+    let topPosition = getComputedStyle(yourShip).getPropertyValue('top');
+    
+    if(topPosition === "550px") {
+        return;
+    }else {
+        let position = parseInt(topPosition);
+        position += 50;
+        yourShip.style.top = `${position}px`;
+    }
+}
+
+window.addEventListener('keydown', flyShip);
